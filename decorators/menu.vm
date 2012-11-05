@@ -1,0 +1,27 @@
+ 
+			 <ul id="mainNav">
+						<li><a href="$request.contextPath/">Home</a></li>
+					 
+	 					<li><a href="$request.contextPath/secured/reservation/ShowReservationList.action?viewType=Reservations">Reservation</a>
+					 			#*<ul>
+									<li><a href="$request.contextPath/secured/papm/Programs.action">List of Program</a></li>
+									<li><a href="$request.contextPath/secured/papm/AddPrograms.action">Add Programs</a></li>
+									<li><a href="$request.contextPath/secured/papm/AddSubject.action">Add Subject</a></li>
+									<li><a href="$request.contextPath/secured/papm/AddSemester.action">Add Semester</a></li>
+									<li><a href="$request.contextPath/secured/papm/Electives.action">Elective</a></li>
+									
+								</ul>*#
+	 					</li>		 
+	 					<li><a href="$request.contextPath/secured/reservation/ShowReservationList.action?viewType=Check-In">Check-In</a>
+					 	 
+	 					</li>		 			
+	 				    <li><a href="$request.contextPath/secured/reservation/ShowReservationList.action?viewType=Check-Out">Check-Out</a>
+					  
+					 	</li>
+					   <li><a href="#">Housekeeping</a>
+					   	 
+					 	</li>
+					   
+					 					 	 
+					<li><a href="$request.contextPath/j_spring_security_logout">Logout</a></li>
+		</ul> <!-- end menu -->

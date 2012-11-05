@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="reservation" namespace="/secured/reservation"
+		extends="default">
+		<action name="ShowReservationInfo!initialLoad"
+			class="com.microtelsolutions.ww.action.ShowReservationInfoAction"
+			method="initialLoad">
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowReservationInfo!search"
+			class="com.microtelsolutions.ww.action.ShowReservationInfoAction"
+			method="search">
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowRoomReservationInfo"
+			class="com.microtelsolutions.ww.action.ShowReservationRoomInfoAction">
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowRoomReservationInfo!initialLoad"
+			class="com.microtelsolutions.ww.action.ShowReservationRoomInfoAction" method="initialLoad">
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowReservationCustomerInfo"
+			class="com.microtelsolutions.ww.action.ShowReservationCustomerInfoAction"
+			 >
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowReservationAgentInfo"
+			class="com.microtelsolutions.ww.action.ShowReservationAgentInfoAction"
+			 >
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowPaymentInfo"
+			class="com.microtelsolutions.ww.action.ShowReservationPaymentInfoAction"
+			 >
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowRoomChargesInfo"
+			class="com.microtelsolutions.ww.action.ShowReservationRoomChargesAction">
+			<result name="success" type="velocity">
+				/reservation/reservation_tab.vm
+			</result>
+		</action>
+		<action name="ShowReservationList"
+			class="com.microtelsolutions.ww.action.ShowReservationListAction">
+			<result name="success" type="velocity">
+				/reservation/show_reservation_list.vm
+			</result>
+			<result name="input" type="velocity">
+				/reservation/show_reservation_list.vm
+			</result>
+		</action>
+		
+		<action name="ShowHouseKeepingInfo"
+			class="com.microtelsolutions.ww.action.ShowHousekeepingInfoAction"
+			 >
+			<result name="success" type="velocity">
+				/reservation/show_housekeeping_info.vm
+			</result>
+		</action>
+		<action name="ShowBillingInfo"
+			class="com.microtelsolutions.ww.action.ShowBillingInfoAction"
+			 >
+			<result name="success" type="velocity">
+				/reservation/show_billing_info.vm
+			</result>
+		</action>
+		<action name="ShowAvailableRooms"
+			class="com.microtelsolutions.ww.action.ShowAvailableRoomsAction">
+			<result name="success" type="velocity">
+				/reservation/show_available_rooms.vm
+			</result>
+		</action>
+	</package>
+</struts>

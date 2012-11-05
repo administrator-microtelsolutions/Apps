@@ -1,0 +1,21 @@
+ 
+
+<!-------------------------------------------------------------------- HEADER ------------------------------------------------------->  
+	<div id="header">
+   		
+   		<a href="#" title="Home" id="logo" class="imgrep">Rush</a>
+             
+      	##<div id="headerRight"><span class="iconPhone"></span>812-3456<span id="right_text">info@rush.com</span></div>
+        <div id="headerRight"><span class="iconPhone"></span>Front Office<span id="right_text">info@rush.com</span></div>       
+
+				 #parse ("/decorators/menu.vm")
+	
+	 </div><!-- end header -->       
+       
+ 	<div class="clearBoth"></div>
+
+
+ 
+ 
+  <!-------------------------------------------------------------------- END HEADER ------------------------------------------------------->  
+ 

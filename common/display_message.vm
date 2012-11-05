@@ -1,0 +1,89 @@
+<br/>
+<font class="errorMessage"></font>
+<font class="infoMessage" ></font>
+
+  <script language ="JavaScript">
+  	  $(".errorMessage").hide();
+  	  $(".infoMessage").hide();
+  	
+  	  function setInfoMessage(messageDesc){
+  	  	  setMessage(messageDesc ,"info")
+	  }
+	  function setErrorMessage(messageDesc){
+  	  	  setMessage(messageDesc, "error")
+	  }
+      function setMessage(messageDesc, messageType){
+      	  if(messageType == null | messageType == ""){
+      	  	messageType = "info";
+      	  }
+	      if(messageDesc == null | messageDesc == ""){
+	      	  $(".errorMessage").hide();
+	      	  $(".infoMessage").hide();
+			  return
+	      }
+	      if(messageType == "error"){
+	      	$(".infoMessage").hide();
+	      	$(".errorMessage").html("<fieldset class='errorMessage'>"+messageDesc+"</msg>");
+	      	$(".errorMessage").show();
+	      }
+	      else{
+	      	$(".errorMessage").hide();
+	        $(".infoMessage").html("<fieldset class='infoMessage'>"+messageDesc+"</msg>");
+	      	$(".infoMessage").show();
+	      }
+	  }
+	  
+	  var dotctr = 0;
+	  var stopMsg = false;
+      function setWaitMessage(msg){
+      	   if(stopMsg){
+      	   		setMessage("");
+      	   		return;
+      	   }
+       	  if(dotctr.length < 20) dotctr += " .";
+       	  else dotctr = " .";
+          setMessage(msg + dotctr);
+       }
+	   var notify = false;
+	   var timer;
+       function setWaitStatus(val,msg )
+       {  
+			if(stopMsg){
+      	   		setMessage("");
+      	   		return;
+      	   }
+       
+            var speed = val;
+       		setWaitMessage(msg);
+			if(notify){
+			   window.clearTimeout(timer);
+    		   timer=0;
+		    }
+			else{
+       		   timer = window.setTimeout("setWaitStatus("+speed+",\""+msg+"\")",speed);
+			}
+       }
+	##setWaitStatus(100,"Please wait while processing your request");
+	#*
+	$(".errorMessage").bind('click', function() {
+		$(this).hide();
+ 	});
+ 	$(".infoMessage").bind('click', function() {
+		$(this).hide();
+ 	});
+ 	*#
+ 	#set($message = $request.session.getAttribute('message')); 
+	#if($message.Description)
+		$(document).ready(function(){ 
+			setMessage("$message.Description", "$message.Type");
+		});
+    #end
+    $request.session.removeAttribute('message');
+   </script>
+   <div id="displaymessage" >
+      #if ($message.Description)
+         <font color="white" size=3><b>$message.Description</b> </font>
+         <br> <br>
+      #end
+   </div>
+  

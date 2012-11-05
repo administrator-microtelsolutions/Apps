@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="setup" namespace="/secured/setup"
+		extends="default">
+		<action name="ShowPropertySetup"
+			class="com.microtelsolutions.ww.action.ShowPropertySetupAction">
+			<result name="success" type="velocity">
+				/maintenance/show_property_setup.vm
+			</result>
+		</action>
+		 <action name="ShowRoomRateSetup"
+			class="com.microtelsolutions.ww.action.ShowRoomRateSetupAction">
+			<result name="success" type="velocity">
+				/maintenance/show_roomrate_setup.vm
+			</result>
+		</action>
+		 <action name="ShowRoomSetup"
+			class="com.microtelsolutions.ww.action.ShowRoomSetupAction">
+			<result name="success" type="velocity">
+				/maintenance/show_room_setup.vm
+			</result>
+		</action>
+		 <action name="ShowSecurity"
+			class="com.microtelsolutions.ww.action.ShowSecurityAction">
+			<result name="success" type="velocity">
+				/maintenance/show_security_info.vm
+			</result>
+		</action>
+		 <action name="ShowGLAccountSetup"
+			class="com.microtelsolutions.ww.action.ShowGLAccountInfoAction">
+			<result name="success" type="velocity">
+				/maintenance/show_gl_account.vm
+			</result>
+		</action>
+		<action name="ShowRoomExtensionSetup"
+			class="com.microtelsolutions.ww.action.ShowRoomExtensionSetupAction">
+			<result name="success" type="velocity">
+				/maintenance/show_room_extension.vm
+			</result>
+		</action>
+	</package>
+</struts>

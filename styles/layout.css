@@ -1,0 +1,113 @@
+
+/* SITE SPECIFIC LAYOUT */
+
+
+ /*-----tableBody------------*/
+
+.tableBody {
+	font-family: Verdana;
+	font-size: 10px;
+	line-height: 15px;
+	color: #000;
+	text-decoration: none;
+	background:#e8e7d5;
+	padding:12px;
+	
+}
+
+.tableBody a,
+.tableBody a:link,
+.tableBody a:visited,
+.tableBody a:active {
+	font-size: 10px;
+	font-family: verdana;
+	line-height: 15px;
+	color: #000;
+	text-decoration:none;
+}
+	
+
+.tableBody th {
+	padding: 5px;
+	font:bold 20px/25px Arial, Helvetica;
+
+}
+
+.tableBody td{
+	font: 12px verdana;
+	padding: 5px;
+
+}
+/*-----tableHead------------*/
+
+
+tr.tableHead td, tr.tableHead th, td.tableHead, .tableHead { 
+	font: bold 9px verdana;
+	line-height: 14px;
+	color: #fff;
+	padding: 5px;
+}
+
+.tableHead td a,
+.tableHead td a:link,
+.tableHead td a:visited,
+.tableHead td a:active,
+tr.tableHead td a,
+tr.tableHead td a:link,
+tr.tableHead td a:visited,
+tr.tableHead td a:active,
+tr.tableHead th a,
+tr.tableHead th a:link,
+tr.tableHead th a:visited,
+tr.tableHead th a:active,
+td.tableHead a,
+td.tableHead a:link,
+td.tableHead a:visited,
+td.tableHead a:active {
+	font: bold 9px verdana;
+	line-height: 14px;
+	color: #fff;
+	text-decoration:none;
+}
+
+
+
+/*-----tableSubHead------------*/
+
+
+tr.tableSubHead td, tr.tableSubHead th, td.tableSubHead { 
+	font: bold 9px verdana;
+	line-height: 14px;
+	color: #000;
+	padding: 5px;
+}
+
+tr.tableSubHead td a,
+tr.tableSubHead td a:link,
+tr.tableSubHead td a:visited,
+tr.tableSubHead td a:active,
+tr.tableSubHead th a,
+tr.tableSubHead th a:link,
+tr.tableSubHead th a:visited,
+tr.tableSubHead th a:active,
+td.tableSubHead a,
+td.tableSubHead a:link,
+td.tableSubHead a:visited,
+td.tableSubHead a:active {
+	font: bold 9px verdana;
+	line-height: 14px;
+	color: #000;
+	text-decoration:none;
+}
+
+.oddRow { background-color: #f8f8f2; }
+.evenRow { background-color: #f2f2e8; }
+.odd { background-color: #f8f8f2; }
+.even { background-color: #f2f2e8; }
+
+.oddRow tr:hover{ background-color: #CAE5FF; }
+.evenRow tr:hover { background-color: #CAE5FF; }
+.odd tr:hover { background-color: #CAE5FF; }
+.even tr:hover { background-color: #CAE5FF; }
+
+

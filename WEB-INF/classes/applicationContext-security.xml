@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Sample namespace-based configuration
+  -
+  -->
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+<!-- 
+    <debug />
+ -->
+    <global-method-security pre-post-annotations="enabled" />
+
+    <http pattern="/static/**" security="none"/>
+    <http pattern="/loggedout.jsp" security="none"/>
+
+    <http use-expressions="true">
+         <intercept-url pattern="/secured/extreme/**" access="hasRole('supervisor')"/>  
+      
+        <intercept-url pattern="/secured/**" access="isAuthenticated()" />
+        <!--
+             Allow all other requests. In a real application you should
+             adopt a whitelisting approach where access is not allowed by default
+          -->
+        <intercept-url pattern="/**" access="permitAll" /> 
+        <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=1" always-use-default-target="true" default-target-url="/index.vm"/>
+        <logout logout-success-url="/loggedout.jsp" delete-cookies="JSESSIONID"/> 
+        <remember-me />
+<!--
+    Uncomment to enable X509 client authentication support
+        <x509 />
+-->
+        <!-- Uncomment to limit the number of sessions a user can have -->
+        <!-- <session-management invalid-session-url="/timeout.jsp">
+            <concurrency-control max-sessions="5" error-if-maximum-exceeded="true" />
+        </session-management> -->
+
+    </http>
+ 
+    <beans:bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+    <beans:bean id="md5encoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+
+	<beans:bean id="daoAuthenticationProvider"
+	 class="org.springframework.security.authentication.dao.DaoAuthenticationProvider"> 
+	  <beans:property name="userDetailsService" ref="userDetailsService"/>
+	</beans:bean>
+	
+	
+	<!--<beans:bean id="userDetailsService"  class="com.aim.security.UserDetailsServiceImpl">  </beans:bean> -->
+	
+  <!-- This bean specifies which roles are assigned to each user. You'll notice  -->
+  <!-- that I'm using an in-memory database implementation instead of using  -->
+  <!-- LDAP or a 'real' database. The ACEGI-provided in-memory implementation is great for testing  -->
+  
+  
+  
+   <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
+  <beans:property name="userMap">
+         <beans:value>test=test,ROLE_MANAGER,ROLE_SUPERVISOR,ROLE_USER</beans:value>
+  </beans:property>
+   </beans:bean>
+
+   
+  
+	<beans:bean id="authenticationManager"
+	    class="org.springframework.security.authentication.ProviderManager">
+	  <beans:property name="providers">
+	    <beans:list>
+	      <beans:ref local="daoAuthenticationProvider" />
+	    </beans:list>
+	  </beans:property>
+	</beans:bean>
+	
+    <authentication-manager>
+	  <authentication-provider user-service-ref="userDetailsService">
+	    <!-- <password-encoder ref="md5encoder"/> -->
+	  </authentication-provider>
+	</authentication-manager>  
+	
+	 
+</beans:beans>
+ 

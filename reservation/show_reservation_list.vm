@@ -1,0 +1,136 @@
+
+<script language="javascript" type="text/javascript">
+   function exitReservationList() {
+    
+      document.location.ref="$request.contextPath/index.vm";
+   }
+</script>
+
+ <fieldset class="main">
+	 <legend>$ViewType</legend>
+
+    #if ($ViewType=="Reservations")
+    	    <fieldset  >
+               <div align="left">
+                ##<input type="button" title="New Reservation" value="New Reservation" class="button" onclick="location.href='ShowReservationInfo!initialLoad.action'"/> 
+                <a href="ShowAvailableRooms.action" style="text-decoration:none"><img src="../../images/help.gif"  title="Available Rooms"/></a> &nbsp;&nbsp;
+                <a href="ShowReservationInfo!initialLoad.action?viewType=Reservations" style="text-decoration:none"><img src="../../images/Add.jpg"  title="New Reservation"/></a> &nbsp;&nbsp;
+                <a href="javascript:exitReservationList();"><img src="../../images/exit2.png"  title="Exit"/></a>
+               </div>
+            </fieldset>
+         #end   	
+      
+   <div class="display">
+   
+  
+	<table width ="100%" id="reservDisplay" class="display"  >
+ 
+  			  <thead> 
+  	    
+  			     <th align="center">Reservation No</th>
+  			     <th align="center">Status</th>
+  			     <th align="center">Room Type</th>
+     			 <th align="center">Room No</th>
+     			 <th align="center">Customer Name</th>
+  			     <th align="center">Book Date</th>
+   				 <th align="center">Arrival Date</th>
+     			 <th align="center">Departure Date</th>
+     			 <th align="center">Travel Agent</th>
+    		</thead>
+    		
+    		<tbody>
+    	 
+    		#set($count = 0 )
+			#foreach ($list in $ReserveList)
+			   #foreach($room in $list.ReservedRooms)
+			   #if(($count % 2)==0)
+   				<tr class="odd">
+   				#else
+   				<tr class="even">
+   				#end
+			     
+   			 
+   	            #set($count = $count+1)
+   				
+   				#set($checkin="")
+                #if($!room.CheckInDate)
+   	          	    #set($checkin = $dateUtil.getDateMMDDYYYY($room.CheckInDate))
+   	        	#end
+   	        	#set($checkout="")
+                #if($!room.CheckOutDate)
+   	          	    #set($checkout = $dateUtil.getDateMMDDYYYY($room.CheckOutDate))
+   	        	#end  
+   	        	#set($bookdate="")
+                #if($!bookdate)
+   	          	    #set($bookdate = $dateUtil.getDateMMDDYYYY($list.BookDate))
+   	        	#end  
+   	        	<td align="left"> <a href="ShowReservationInfo!search.action?id=$list.Id&viewType=$ViewType">$!list.Id</a></td> 
+   	        	<td align="center">$!list.Status.Description</td>
+   	        	<td align="center">$!room.Room.RoomType.Description</td>
+   				<td align="center">$!room.Room.RoomNo</td>
+   				<td align="center">$!list.Customer.FullName</td> 
+   	        	<td align="center">$bookdate</td>      
+   				<td align="center">$checkin</td>
+   				<td align="center">$checkout</td>
+   				
+   				<td align="center"></td>
+   				</tr>
+   				#end 
+			#end
+			 
+			</tbody>
+			 
+   		 </tr>
+		</table>	
+	 </div>
+	    <div >
+    ##if ($ViewType=="Reservations")
+        ##<input type="button" title="New Reservation" value="New Reservation" class="button" onclick="location.href='ShowReservationInfo!initialLoad.action'"/> 
+        ##<a href="javascript:saveSubjectSchedule();"><img src="../../images/Add.jpg"/></a> &nbsp;
+        ##<a href="javascript:saveSubjectSchedule();"><img src="../../images/Add.jpg"/></a>
+        ##<br><br>
+    ##end
+    </div>
+	</fieldset>
+	
+	##<fieldset class=sub >
+	##<legend>Fund Posting</legend>    
+	##	<div style="height:600; width:100%">
+	##		<IFRAME SRC="ShowReservationInfo!initialLoad.action" WIDTH='100%' HEIGHT='100%' scrolling='no' frameborder=0 marginwidth=0 marginheight=0></IFRAME>
+	##	</div>
+ </fieldset> 
+	 
+<script >	 
+ 
+  $(document).ready(function(){ 	
+    
+	   loadTables();
+ 
+    
+  });
+ 
+ function loadTables() {
+   
+   jQuery('#reservDisplay').dataTable({
+			//"sScrollY": 200,
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+			
+		});
+		//.makeEditable({
+		//sUpdateURL: "UpdateData.php"
+	//});
+ }
+  
+
+
+	 
+</script>
+
+#*<script type="text/javascript">
+	    $('.new').attr("href", "javascript:showSearch();").show();
+	     $('.search').attr("href", "javascript:doSearch();").show();
+	    $('.clear').attr("href", "javascript:submitDelete();").show();
+	</script> 	*#
+  
+  

@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="msvalidate.01" content="11A2F70E28641DBEE9FE613AA4E55708"/>
+<title>RUSH</title>
+
+<meta name="robots" content="index,follow"/>
+
+
+<!-- Google +1 -->
+
+<!-- styles -->
+<link href="css/styles.css" rel="stylesheet" type="text/css"/>
+<link href="css/tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrapper {display:table;height:100%}
+	</style>
+<![endif]-->
+
+<!-- javascript -->
+<script src="js/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+<!--<div id="pageWrapper">-->
+<div id="wrapper">
+	
+	
+
+ <!-------------------------------------------------------------------- HEADER ------------------------------------------------------->  
+
+	 <!-- HEADER -->  
+	<div id="header">
+   		
+   		<a href="#" title="Home" id="logo" class="imgrep">Rush</a>
+             
+      	<div id="headerRight"><span class="iconPhone"></span>812-3456<span id="right_text">info@rush.com</span></div>
+          
+      
+      
+   			 <!-- MENU -->  
+    		 <ul id="mainNav">
+      			  <li><a href="#" title="Home">Home</a></li>
+       			  <li><a href="#" title="Accommodation">Accommodation</a></li>
+       		 	  <li><a href="#" title="Rates">Rates</a></li>
+      		  	  <li><a href="#" title="Contact">Contact</a></li>
+     		</ul> <!-- end menu -->
+     
+    </div><!-- end header -->       
+       
+ 	<div class="clearBoth"></div>
+ 
+ 
+  <!-------------------------------------------------------------------- END HEADER ------------------------------------------------------->  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <!-------------------------------------------------------------------- BODY ------------------------------------------------------->  
+ 
+ 
+	<div id="contentWrapper">
+			
+		<fieldset class="main">
+	<legend> Hotel Reservation </legend>
+			<p>Hotel Reservation</p>
+					
+			<p>Hotel Reservation</p>	
+			
+			<table>
+				<tr>
+					<td>
+						TABLE VIEW
+					</td>
+				</tr>			
+			</table>
+		</fieldset>
+
+		<div id="tabs">
+			  <ul class="tab-list">
+                  <li>
+                        <a href="index.vm">Standard Room</a>
+                  </li>
+                  <li>
+                        <a href="deluxe.vm">Deluxe Room</a>
+                  </li>
+                  <li>
+                        <a href="superior.vm">Superior Room</a>
+                  </li>
+                  <li>
+                        <a href="premier.vm">Premier Room</a>
+                  </li>
+              </ul>
+              
+              
+              
+              
+
+		</div>
+
+	</div>
+			
+				
+</div> <!-- End Wrapper -->
+<!-- end wrapper -->
+
+
+
+ <!-------------------------------------------------------------------- END BODY ------------------------------------------------------->  
+
+
+
+
+
+ <!-------------------------------------------------------------------- FOOOTER ------------------------------------------------------->  
+<div id="footerWrapper">
+	    <div id="footer">
+    	<div id="footer1">&nbsp;</div>
+    	
+			
+      <div id="siteInfo">
+        <div id="copy">©2012 MICROTEL</div>
+      <!-- <div id="ccLogos" class="imgrep">Visa, Mastercard, AMEX, Discover, PayPal</div> -->
+      </div><!-- end siteInfo -->
+    </div><!-- end footer -->
+		  </div><!-- end footerWrapper -->
+  
+  <!-------------------------------------------------------------------- END FOOTER -------------------------------------------------------> 
+  
+
+
+
+
+
+
+ 
+    
+   <script>
+        (function ($) {
+            
+            
+            
+            $('.tab-list')
+                    .find('li')
+                   
+                    .click(function (e) {
+                        
+                            // Toggle Current Class
+                            var ele = $(this),
+                                    link = ele.find('a').attr('href');
+                    
+                            ele
+                                    .addClass('current')
+                                    .siblings('li')
+                                    .removeClass('current');
+                                    
+                                    console.log(link);
+                                    
+                            $('.window').attr('src', link);
+                            $('.search').val(link);
+                                    
+                            e.preventDefault();
+                        
+                    })
+            
+            $('.window').height(window.innerHeight - 100);
+            
+          
+            
+        } (jQuery))
+    </script>
+    

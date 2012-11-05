@@ -1,0 +1,6 @@
+
+#parse("/reservation/show_reservation_header.vm")
+
+#parse("/common/info_tab.vm")
+ 
+     

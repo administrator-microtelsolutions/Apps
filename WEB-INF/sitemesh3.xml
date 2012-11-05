@@ -1,0 +1,10 @@
+<sitemesh>
+   <mapping path="/*" decorator="/decorators/main.vm"/>
+   <mapping path="/login.jsp*" decorator="/decorators/main.vm"/>
+   <mapping path="/index.vm*" decorator="/decorators/main.vm"/>
+   <mapping path="/login.vm*" decorator="/decorators/main.vm"/>
+   <mapping path="/Menu.action*" decorator="/decorators/no_decor.vm"/>
+   <mapping path="/xml/*" decorator="/decorators/main.xml"/>
+   <mapping path="/tabs/*" decorator="/decorators/tab_common.vm"/>
+   <mapping path="/ajax/*" decorator="/decorators/no_decor.vm"/>
+</sitemesh>

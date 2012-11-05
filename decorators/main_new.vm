@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemscope="" itemtype="http://schema.org/Organization">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="msvalidate.01" content="11A2F70E28641DBEE9FE613AA4E55708"/>
+<title>RUSH</title>
+
+<meta name="robots" content="index,follow"/>
+
+
+<!-- Google +1 -->
+
+<!-- styles -->
+<link href="$request.contextPath/css/styles.css" rel="stylesheet" type="text/css"/>
+<link href="$request.contextPath/css/tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrapper {display:table;height:100%}
+	</style>
+<![endif]-->
+
+<!-- javascript -->
+<script src="$request.contextPath/js/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+<!--<div id="pageWrapper">-->
+<div id="wrapper">
+	
+	
+
+ <!-------------------------------------------------------------------- HEADER ------------------------------------------------------->  
+
+	 <!-- HEADER -->  
+	#parse("/decorators/header.vm")
+ 
+ 
+  <!-------------------------------------------------------------------- END HEADER ------------------------------------------------------->  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <!-------------------------------------------------------------------- BODY ------------------------------------------------------->  
+ #parse("/decorators/body.vm")
+ 
+ 
+<!-- end wrapper -->
+
+</body>
+
+ <!-------------------------------------------------------------------- END BODY ------------------------------------------------------->  
+
+
+
+
+
+ <!-------------------------------------------------------------------- FOOOTER ------------------------------------------------------->  
+#parse("/decorators/footer.vm")
+  
+  <!-------------------------------------------------------------------- END FOOTER -------------------------------------------------------> 
+  
+
+
+
+    
+   <script>
+        (function ($) {
+            
+            
+            
+            $('.tab-list')
+                    .find('li')
+                   
+                    .click(function (e) {
+                        
+                            // Toggle Current Class
+                            var ele = $(this),
+                                    link = ele.find('a').attr('href');
+                    
+                            ele
+                                    .addClass('current')
+                                    .siblings('li')
+                                    .removeClass('current');
+                                    
+                                    console.log(link);
+                                    
+                            $('.window').attr('src', link);
+                            $('.search').val(link);
+                                    
+                            e.preventDefault();
+                        
+                    })
+            
+            $('.window').height(window.innerHeight - 100);
+            
+          
+            
+        } (jQuery))
+    </script>
+</html>
+    

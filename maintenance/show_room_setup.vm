@@ -1,0 +1,44 @@
+<fieldset>
+ 
+
+<div class="display" >
+ 		<table width ="100%" id="tablemenu" class="tablesorter" >
+ 		   <tr>
+  			  <thead>
+  	     	     <th align="center">Room No</th>
+   				 <th align="center">Room Type</th>
+     			 <th align="center">Bed(s)</th>
+     			 <th align="center">Description</th>
+     			 <th align="center">Location</th>
+     			 <th align="center">Options</th>
+   	 		</thead>
+     		<tbody>
+     		#set($count = 0 )
+			#foreach ($list in $RoomList)
+			    #if(($count % 2)==0)
+   				<tr class="odd">
+   				#else
+   				<tr class="even">
+   				#end
+   	            #set($count = $count+1)
+   	            <td align="center">$!list.RoomNo</td>
+   	            <td align="center">$!list.RoomType.Description</td>
+   	            <td align="center">$!list.NumberOfBeds</td>
+   	            <td align="center">$!list.Description</td>
+   	            <td align="center">$!list.Floor</td>
+   	            <td ><a href="#">Edit</a>    <a href="#">Delete</a></td>
+   	        #end
+     		</tbody>
+			 
+   		 </tr>
+		</table>	
+	</div>	
+ 
+ 
+  <input type="button" title="Add" value="Add" class="button" onclick="location.href='ShowFacultyMaintenance!initialLoad.action'"/> 
+</fieldset>
+<script>
+	$('#tablemenu tr:odd').addClass('odd');
+	$('#tablemenu tr:even').addClass('even');
+	$('#tablemenu').tablePagination();
+</script>		
